@@ -1,10 +1,10 @@
 This is a sample solution to a process that retuns the largest N ids from a stream of id, value pairs.
 
 # Problem
-1426828011 9
-1426828028 350
-1426828037 25
-1426828056 231
+1426828011 9\
+1426828028 350\
+1426828037 25\
+1426828056 231\
 1426828058 109
 
 The app takes in id, value pairs in the format above and returns N ids with largest values from the stream.
@@ -36,8 +36,11 @@ Both solutions assume the id,value pair will be delimited by a space, tab, or a 
 The 'tests' folder contains the unit tests I put together for the two algorithms above.
 
 The 'tools' folder contains a executable tool that can be used to process a stream as such:
+
 $> FindUniqueMaxN --n 2 --inputFile testdata.txt
+
 OR
+
 $> ./tools/FindUniqueMaxN --n 2 < ../tests/testdata.txt
 
 Run 'FindUniqueMax --help' to see the options.
@@ -45,6 +48,7 @@ Run 'FindUniqueMax --help' to see the options.
 # Limitations
 
 There are a couple of ways the solution can be improved. 
+
 1- It would be nice to separate the function doing the actual data processing from the IO handling.
 
 2- Both the stream processor and the data sorting algorithm can be abstracted to work 
@@ -53,10 +57,7 @@ One can templatize the types and by expect the caller to provide a custom compar
 
 3- Currently, the stream processing is not robust to delays, drops, incomplete data etc.
 
-4- The copies into vectors at the end of the functions for returning the top values can be 
-avoided by using something like boost::ranges
-
-5- Adding values while continuously querying for values is not supported. One has to wait until the end to 
+4- Adding values while continuously querying for values is not supported. One has to wait until the end to 
 retrieve the results.
 
 # Building 
